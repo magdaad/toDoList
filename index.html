@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<section id="toDoList" class="container-fluid">
+    <h1 class="text-center">TO DO LIST</h1>
+
+    <div class="newTask container-fluid">
+        <h2 class="newTaskHeader">Add new task</h2>
+        <form id="myForm" class="form-group row p-4 justify-content-around">
+            <input type="text" class="form-control col-9" id="inputNewTask" required>
+            <label for="inputNewTask"></label>
+            <button type="button" class="buttonAdd col-2 btn btn-success">Add</button>
+        </form>
+    </div>
+
+    <div id="taskList"></div>
+
+</section>
+
+<!--
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+-->
+
+<script src="todo.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+.taskItem{
+    border: 1px solid darkgray;
+    margin:3px;
+    padding:10px;
+    border-radius: 5px;
+
+}
+
+.newTask{
+    border: 1px solid darkgray;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.finishedTask{
+    background-color: darkgray;
+}
