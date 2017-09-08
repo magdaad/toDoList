@@ -70,6 +70,20 @@ var Task = function(title){
     };*/
 };
 
+var DeadlineTask = function(title, deadline) {
+    this.id = id;
+    id = id + 1;
+    this.title = title;
+    this.finished = false;
+    this.deadline = deadline;
+};
+
+var inheritsFrom = function (child, parent) {
+    child.prototype = Object.create(parent.prototype);
+};
+
+inheritsFrom(DeadlineTask, Task);
+
 Task.prototype.draw = function (){
     var x = document.createElement("DIV");
     x.setAttribute("data-idd", this.id);
@@ -131,13 +145,6 @@ Task.prototype.delete = function(){
 
 document.querySelector(".buttonAdd").addEventListener("click", addTask);
 
-function init(){
-    var task1 = new Task("helo ele elo");
-    var task2 = new Task("no elo");
-    allTasks.push(task1);
-    allTasks.push(task2);
-    showAllTasks();
-}
 
 function addTask(){
     var titleValue = document.querySelector("#inputNewTask").value;
@@ -196,7 +203,34 @@ function onToggle(e) {
             }
 }
 
+
+DeadlineTask.prototype.draw = function() {
+    Task.prototype.draw.call(this);
+    var z = document.createElement("SPAN");
+    z.setAttribute("class", "col-12 text-right");
+    var t = document.createTextNode("Deadline: " + this.deadline);
+    z.appendChild(t);
+    document.querySelector(".taskItem").appendChild(z);
+};
+
+function init(){
+    var task1 = new Task("helo ele elo");
+    var task2 = new Task("no elo");
+    var b = new DeadlineTask("12", 12);
+    var b1 = new DeadlineTask("2", 2);
+    var b2 = new DeadlineTask("22", 22);
+    var b3 = new DeadlineTask("32", 32);
+    allTasks.push(task1);
+    allTasks.push(task2);
+    allTasks.push(b);
+    allTasks.push(b1);
+    allTasks.push(b2);
+    allTasks.push(b3);
+    showAllTasks();
+}
+
 init();
+
 /*function showTask(newTask) {
  var x = document.createElement("DIV");
  if(newTask.finished){

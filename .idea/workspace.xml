@@ -22,7 +22,7 @@
     <favorites_list name="untitled1" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.2606351">
+    <splitter split-orientation="horizontal" split-proportion="0.38046736">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
@@ -39,16 +39,16 @@
             <entry file="file://$PROJECT_DIR$/todo.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="3124">
-                  <caret line="243" column="0" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
+                  <caret line="277" column="0" selection-start-line="277" selection-start-column="0" selection-end-line="277" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#42#0" expanded="false" />
-                    <marker date="1504868300219" expanded="true" signature="102:2242" ph="{...}" />
-                    <marker date="1504868300219" expanded="true" signature="1851:2237" ph="{...}" />
-                    <marker date="1504868300219" expanded="true" signature="1888:2152" ph="{...}" />
-                    <marker date="1504868300219" expanded="true" signature="1956:2079" ph="{...}" />
-                    <marker date="1504868300219" expanded="true" signature="2003:2065" ph="{...}" />
-                    <marker date="1504868300219" expanded="true" signature="2165:2231" ph="{...}" />
-                    <marker date="1504868300219" expanded="true" signature="5322:6027" ph="{...}" />
+                    <marker date="1504875752685" expanded="true" signature="102:2242" ph="{...}" />
+                    <marker date="1504875752685" expanded="true" signature="1851:2237" ph="{...}" />
+                    <marker date="1504875752685" expanded="true" signature="1888:2152" ph="{...}" />
+                    <marker date="1504875752685" expanded="true" signature="1956:2079" ph="{...}" />
+                    <marker date="1504875752685" expanded="true" signature="2003:2065" ph="{...}" />
+                    <marker date="1504875752685" expanded="true" signature="2165:2231" ph="{...}" />
+                    <marker date="1504875752685" expanded="true" signature="5460:6165" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -83,15 +83,18 @@
           <file leaf-file-name="todo.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/todo.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="616">
-                  <caret line="198" column="7" selection-start-line="198" selection-start-column="7" selection-end-line="198" selection-end-column="7" />
+                <state relative-caret-position="70">
+                  <caret line="145" column="72" selection-start-line="145" selection-start-column="72" selection-end-line="145" selection-end-column="72" />
                   <folding>
                     <element signature="e#0#42#0" expanded="false" />
                     <element signature="e#194#1820#0" expanded="false" />
                     <element signature="e#1825#2240#0" expanded="false" />
-                    <element signature="e#2278#3729#0" expanded="false" />
-                    <element signature="e#3766#4096#0" expanded="false" />
-                    <element signature="e#6039#7359#0" expanded="false" />
+                    <element signature="e#4073#4403#0" expanded="false" />
+                    <element signature="n#!!block;n#addTask#0" expanded="false" />
+                    <element signature="n#!!block;n#deleteTask#0" expanded="false" />
+                    <element signature="n#!!block;n#showAllTasks#0" expanded="false" />
+                    <element signature="n#!!block;n#onToggle#0" expanded="false" />
+                    <element signature="e#6923#8243#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -261,12 +264,12 @@
       <workItem from="1504689510369" duration="12260000" />
       <workItem from="1504721585713" duration="8882000" />
       <workItem from="1504775714089" duration="11185000" />
-      <workItem from="1504861992873" duration="6253000" />
+      <workItem from="1504861992873" duration="10179000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38580000" />
+    <option name="totallyTimeSpent" value="42506000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -340,9 +343,12 @@
             <element signature="e#0#42#0" expanded="false" />
             <element signature="e#194#1820#0" expanded="false" />
             <element signature="e#1825#2240#0" expanded="false" />
-            <element signature="e#2278#3729#0" expanded="false" />
-            <element signature="e#3766#4096#0" expanded="false" />
-            <element signature="e#6039#7359#0" expanded="false" />
+            <element signature="e#4073#4403#0" expanded="false" />
+            <element signature="n#!!block;n#addTask#0" expanded="false" />
+            <element signature="n#!!block;n#deleteTask#0" expanded="false" />
+            <element signature="n#!!block;n#showAllTasks#0" expanded="false" />
+            <element signature="n#!!block;n#onToggle#0" expanded="false" />
+            <element signature="e#6923#8243#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -381,9 +387,12 @@
             <element signature="e#0#42#0" expanded="false" />
             <element signature="e#194#1820#0" expanded="false" />
             <element signature="e#1825#2240#0" expanded="false" />
-            <element signature="e#2278#3729#0" expanded="false" />
-            <element signature="e#3766#4096#0" expanded="false" />
-            <element signature="e#6039#7359#0" expanded="false" />
+            <element signature="e#4073#4403#0" expanded="false" />
+            <element signature="n#!!block;n#addTask#0" expanded="false" />
+            <element signature="n#!!block;n#deleteTask#0" expanded="false" />
+            <element signature="n#!!block;n#showAllTasks#0" expanded="false" />
+            <element signature="n#!!block;n#onToggle#0" expanded="false" />
+            <element signature="e#6923#8243#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -422,9 +431,12 @@
             <element signature="e#0#42#0" expanded="false" />
             <element signature="e#194#1820#0" expanded="false" />
             <element signature="e#1825#2240#0" expanded="false" />
-            <element signature="e#2278#3729#0" expanded="false" />
-            <element signature="e#3766#4096#0" expanded="false" />
-            <element signature="e#6039#7359#0" expanded="false" />
+            <element signature="e#4073#4403#0" expanded="false" />
+            <element signature="n#!!block;n#addTask#0" expanded="false" />
+            <element signature="n#!!block;n#deleteTask#0" expanded="false" />
+            <element signature="n#!!block;n#showAllTasks#0" expanded="false" />
+            <element signature="n#!!block;n#onToggle#0" expanded="false" />
+            <element signature="e#6923#8243#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -457,15 +469,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/todo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="198" column="7" selection-start-line="198" selection-start-column="7" selection-end-line="198" selection-end-column="7" />
+        <state relative-caret-position="70">
+          <caret line="145" column="72" selection-start-line="145" selection-start-column="72" selection-end-line="145" selection-end-column="72" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
             <element signature="e#194#1820#0" expanded="false" />
             <element signature="e#1825#2240#0" expanded="false" />
-            <element signature="e#2278#3729#0" expanded="false" />
-            <element signature="e#3766#4096#0" expanded="false" />
-            <element signature="e#6039#7359#0" expanded="false" />
+            <element signature="e#4073#4403#0" expanded="false" />
+            <element signature="n#!!block;n#addTask#0" expanded="false" />
+            <element signature="n#!!block;n#deleteTask#0" expanded="false" />
+            <element signature="n#!!block;n#showAllTasks#0" expanded="false" />
+            <element signature="n#!!block;n#onToggle#0" expanded="false" />
+            <element signature="e#6923#8243#0" expanded="false" />
           </folding>
         </state>
       </provider>
