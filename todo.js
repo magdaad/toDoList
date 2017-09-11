@@ -10,84 +10,22 @@ var Task = function(title){
     id = id + 1;
     this.title = title;
     this.finished = false;
-    /*this.draw = function(){
-        var x = document.createElement("DIV");
-        x.setAttribute("data-idd", this.id);
-        if(this.finished){
-            x.setAttribute("class", "taskItem finishedTask row justify-content-between align-items-center");
-            document.getElementById("taskList").appendChild(x);
-        }
-        else{
-            x.setAttribute("class", "taskItem row justify-content-between align-items-center");
-            var list = document.getElementById("taskList");
-            list.insertBefore(x, list.childNodes[0]);
-        }
-
-        var z = document.createElement("SPAN");
-        z.setAttribute("class", "col-7");
-        var t = document.createTextNode(this.title);
-        z.appendChild(t);
-        x.appendChild(z);
-
-        var y = document.createElement("INPUT");
-        y.setAttribute("type", "checkbox");
-        y.setAttribute("class", "checkbox col-1");
-        y.setAttribute("data-id", this.id);
-        y.setAttribute("onclick", "onToggle(this)");
-        if(this.finished){
-            y.checked = true;
-        }
-        var yt = document.createTextNode("Gotowe");
-        var yl = document.createElement("LABEL");
-        yl.appendChild(yt);
-        x.appendChild(yl);
-        x.appendChild(y);
-
-        var b = document.createElement("BUTTON");
-        b.setAttribute("class", "deleteButton col-2 btn btn-danger");
-        b.setAttribute("type", "button");
-        b.setAttribute("data-id", this.id);
-        b.setAttribute("onclick", "deleteTask(this)");
-        var tt = document.createTextNode("DELETE");
-        b.appendChild(tt);
-        x.appendChild(b);
-
-    };*/
-    /*this.delete = function(){
-        if( this.finished == true) {
-            var i =0;
-            for(i=0; i<allTasks.length; i++){
-                if(allTasks[i].id == this.id){
-                    allTasks.splice(i, 1);
-                }
-            }
-            showAllTasks();
-            console.log(allTasks);
-        }
-        else{
-            alert("you cannot delete unfinished task")
-        }
-    };*/
 };
 
 var DeadlineTask = function(title, deadline) {
     Task.call(this, title);
     this.deadline = deadline;
-
 };
 
-var SubtaskTask = function (title) {
-    Task.call(this, title)
+var SubtaskTask = function (title, tasksArray) {
+    Task.call(this, title);
+    var array = [];
+    this.array = tasksArray;
 };
+
 
 DeadlineTask.prototype = Object.create(Task.prototype);
 SubtaskTask.prototype = Object.create(Task.prototype);
-
-/*var inheritsFrom = function (child, parent) {
-    child.prototype = Object.create(parent.prototype);
-};
-inheritsFrom(DeadlineTask, Task);
-inheritsFrom(SubtaskTask, Task);*/
 
 Task.prototype.draw = function (){
     var x = document.createElement("DIV");
@@ -158,8 +96,47 @@ DeadlineTask.prototype.draw = function() {
         z.appendChild(t);
         document.querySelector(".taskItem").appendChild(z);
     }
-
 };
+
+SubtaskTask.prototype.draw = function() {
+    Task.prototype.draw.call(this);
+    console.log(this);
+    drawSubtask(this);
+};
+
+function drawSubtask (parent){
+    console.log(parent);
+    var temp = parent.id;
+     x = document.getElementById(temp);
+     console.log(x);
+    for (var i=0; i<parent.array.length; i++){
+        console.log([parent.array[i].title]);
+
+        var z = document.createElement("SPAN");
+        z.setAttribute("class", "col-6 text-center");
+        var t = document.createTextNode("Title: " + parent.array[i].title);
+        z.appendChild(t);
+        x.appendChild(z);
+
+        var y = document.createElement("INPUT");
+        y.setAttribute("type", "checkbox");
+        y.setAttribute("class", "checkbox col-1");
+        y.setAttribute("data-id", this.id);
+        y.setAttribute("onclick", "onToggle(this)");
+        if (parent.array[i].finished) {
+            y.checked = true;
+
+        }
+        var yt = document.createTextNode("Gotowe");
+        var yl = document.createElement("LABEL");
+        yl.appendChild(yt);
+        x.appendChild(yl);
+        x.appendChild(y);
+
+    }
+};
+
+
 
 document.querySelector(".buttonAdd").addEventListener("click", addTask);
 
@@ -228,14 +205,18 @@ function init(){
     var task2 = new Task("no elo");
     var b = new DeadlineTask("12", 12);
     var b1 = new DeadlineTask("2", 2);
-    var c = new SubtaskTask("qq");
-    var c1 = new SubtaskTask("ww");
-   // c1.prototype.title = "ss";
-    allTasks.push(task1);
+    task2.finished = true;
+    var tasksArray = [];
+    tasksArray.push(task1);
+    tasksArray.push(task2);
+    tasksArray.push(task1);
+
+    var c1 = new SubtaskTask("ww", tasksArray);
+    //allTasks.push(task1);
     allTasks.push(task2);
     allTasks.push(b);
     allTasks.push(b1);
-    allTasks.push(c);
+//    allTasks.push(c);
     allTasks.push(c1);
 
     showAllTasks();
