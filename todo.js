@@ -71,22 +71,27 @@ var Task = function(title){
 };
 
 var DeadlineTask = function(title, deadline) {
-    this.id = id;
-    id = id + 1;
-    this.title = title;
-    this.finished = false;
+    Task.call(this, title);
     this.deadline = deadline;
+
 };
 
-var inheritsFrom = function (child, parent) {
+var SubtaskTask = function (title) {
+    Task.call(this, title)
+};
+
+DeadlineTask.prototype = Object.create(Task.prototype);
+SubtaskTask.prototype = Object.create(Task.prototype);
+
+/*var inheritsFrom = function (child, parent) {
     child.prototype = Object.create(parent.prototype);
 };
-
 inheritsFrom(DeadlineTask, Task);
+inheritsFrom(SubtaskTask, Task);*/
 
 Task.prototype.draw = function (){
     var x = document.createElement("DIV");
-    x.setAttribute("data-idd", this.id);
+    x.setAttribute("id", this.id);
     if (this.finished) {
         x.setAttribute("class", "taskItem finishedTask row justify-content-between align-items-center");
         document.getElementById("taskList").appendChild(x);
@@ -143,8 +148,20 @@ Task.prototype.delete = function(){
     }
 };
 
-document.querySelector(".buttonAdd").addEventListener("click", addTask);
+DeadlineTask.prototype.draw = function() {
+    Task.prototype.draw.call(this);
 
+    if(this.finished==false){
+        var z = document.createElement("SPAN");
+        z.setAttribute("class", "col-12 text-right");
+        var t = document.createTextNode("Deadline: " + this.deadline);
+        z.appendChild(t);
+        document.querySelector(".taskItem").appendChild(z);
+    }
+
+};
+
+document.querySelector(".buttonAdd").addEventListener("click", addTask);
 
 function addTask(){
     var titleValue = document.querySelector("#inputNewTask").value;
@@ -204,28 +221,23 @@ function onToggle(e) {
 }
 
 
-DeadlineTask.prototype.draw = function() {
-    Task.prototype.draw.call(this);
-    var z = document.createElement("SPAN");
-    z.setAttribute("class", "col-12 text-right");
-    var t = document.createTextNode("Deadline: " + this.deadline);
-    z.appendChild(t);
-    document.querySelector(".taskItem").appendChild(z);
-};
+
 
 function init(){
     var task1 = new Task("helo ele elo");
     var task2 = new Task("no elo");
     var b = new DeadlineTask("12", 12);
     var b1 = new DeadlineTask("2", 2);
-    var b2 = new DeadlineTask("22", 22);
-    var b3 = new DeadlineTask("32", 32);
+    var c = new SubtaskTask("qq");
+    var c1 = new SubtaskTask("ww");
+   // c1.prototype.title = "ss";
     allTasks.push(task1);
     allTasks.push(task2);
     allTasks.push(b);
     allTasks.push(b1);
-    allTasks.push(b2);
-    allTasks.push(b3);
+    allTasks.push(c);
+    allTasks.push(c1);
+
     showAllTasks();
 }
 
