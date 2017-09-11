@@ -4,6 +4,8 @@
 var allTasks = [];
 
 var id = 1;
+var isSub = false;
+var subT = [];
 
 var Task = function(title){
     this.id = id;
@@ -107,10 +109,12 @@ SubtaskTask.prototype.draw = function() {
 function drawSubtask (parent){
     console.log(parent);
     var temp = parent.id;
-     x = document.getElementById(temp);
-     console.log(x);
-    for (var i=0; i<parent.array.length; i++){
-        console.log([parent.array[i].title]);
+
+    x = document.getElementById(temp);
+    console.log(x);
+    var i = 0;
+    for (i=0; i<parent.array.length; i++){
+        console.log([parent.array[i]]);
 
         var z = document.createElement("SPAN");
         z.setAttribute("class", "col-6 text-center");
@@ -122,10 +126,12 @@ function drawSubtask (parent){
         y.setAttribute("type", "checkbox");
         y.setAttribute("class", "checkbox col-1");
         y.setAttribute("data-id", this.id);
-        y.setAttribute("onclick", "onToggle(this)");
+      //  y.setAttribute("onclick", "onChange(this)");
+        y.addEventListener("click", function () {
+            parent.array[i].finished = true;
+        });
         if (parent.array[i].finished) {
             y.checked = true;
-
         }
         var yt = document.createTextNode("Gotowe");
         var yl = document.createElement("LABEL");
@@ -134,19 +140,87 @@ function drawSubtask (parent){
         x.appendChild(y);
 
     }
-};
-
-
+}
 
 document.querySelector(".buttonAdd").addEventListener("click", addTask);
+document.querySelector(".buttonAddMore").addEventListener("click", addSubTask);
+
+function addSubTask(){
+    x = document.getElementById("myForm");
+
+    var y = document.createElement("INPUT");
+    y.setAttribute("type", "text");
+    y.setAttribute("class", "col-10");
+    y.setAttribute("id", "sTitle");
+
+    var yt = document.createTextNode("Title");
+    var yl = document.createElement("LABEL");
+    yl.appendChild(yt);
+    x.appendChild(y);
+    x.appendChild(yl);
+
+/*    var yy = document.createElement("INPUT");
+    yy.setAttribute("id", "sdeadline");
+    yy.setAttribute("type", "text");
+    yy.setAttribute("class", "col-10");
+
+    var yyt = document.createTextNode("Deadline");
+    var yyl = document.createElement("LABEL");
+    yyl.appendChild(yyt);
+    x.appendChild(yy);
+    x.appendChild(yyl);*/
+    isSub= true;
+
+    var button = document.createElement("BUTTON");
+    button.setAttribute("class", "col-2 btn btn-danger");
+    button.addEventListener("click", function () {
+        var titleValue = document.querySelector("#sTitle").value;
+        var newTask = new Task(titleValue);
+        subT.push(newTask);
+        event.preventDefault();
+    });
+
+    x.appendChild(button);
+
+    //if(document.querySelector("#sdeadline").value === ""){
+
+   // }
+   /* else{
+        var title = document.querySelector("#sTitle").value;
+        var deadline = document.querySelector("#sdeadline").value;
+        var newTaskDeadline = new DeadlineTask(title, deadline);
+        subT.push(newTaskDeadline);
+    }*/
+
+}
 
 function addTask(){
-    var titleValue = document.querySelector("#inputNewTask").value;
+
+    if(isSub){
+        var stitleValue = document.querySelector("#inputNewTask").value;
+        var newTaskSub = SubtaskTask(stitleValue, subT);
+        allTasks.push(newTaskSub);
+        newTaskSub.draw();
+    }
+    else{
+        if(document.querySelector("#deadline").value === ""){
+            var titleValue = document.querySelector("#inputNewTask").value;
+            var newTask = new Task(titleValue);
+            allTasks.push(newTask);
+            newTask.draw();
+        }
+        else{
+            var title = document.querySelector("#inputNewTask").value;
+            var deadline = document.querySelector("#deadline").value;
+            var newTaskDeadline = new DeadlineTask(title, deadline);
+            allTasks.push(newTaskDeadline);
+            newTaskDeadline.draw();
+        }
+    }
+
     document.querySelector("#inputNewTask").value = "";
-    var newTask = new Task(titleValue);
-    allTasks.push(newTask);
-    console.log(allTasks);
-    newTask.draw();
+    document.querySelector("#deadline").value = "";
+
 }
 
 function deleteTask(e) {
@@ -209,14 +283,11 @@ function init(){
     var tasksArray = [];
     tasksArray.push(task1);
     tasksArray.push(task2);
-    tasksArray.push(task1);
 
     var c1 = new SubtaskTask("ww", tasksArray);
-    //allTasks.push(task1);
-    allTasks.push(task2);
+
     allTasks.push(b);
     allTasks.push(b1);
-//    allTasks.push(c);
     allTasks.push(c1);
 
     showAllTasks();

@@ -14,10 +14,14 @@
     <div class="newTask container-fluid">
         <h2 class="newTaskHeader">Add new task</h2>
         <form id="myForm" class="form-group row p-4 justify-content-around">
-            <input type="text" class="form-control col-9" id="inputNewTask" required>
-            <label for="inputNewTask"></label>
-            <button type="button" class="buttonAdd col-2 btn btn-success">Add</button>
+            <input type="text" class="form-control col-10" id="inputNewTask" required>
+            <label for="inputNewTask">TITLE</label>
+            <input type="text" class="form-control col-10" id="deadline" required>
+            <label for="deadline">DEADLINE</label>
+
         </form>
+        <button type="button" class="buttonAdd col-2 btn btn-success">Add task to list</button>
+        <button type="button" class="buttonAddMore col-2 btn btn-warning">Add subtask</button>
     </div>
 
     <div id="taskList"></div>
