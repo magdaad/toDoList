@@ -4,8 +4,14 @@
 var allTasks = [];
 
 var id = 1;
+var ids = 0;
 var isSub = false;
 var subT = [];
+
+/*myStorage = window.localStorage;
+localStorage.setItem('myCat', 'Tom');
+var cat = localStorage.getItem("myCat");*/
+
 
 var Task = function(title){
     this.id = id;
@@ -24,7 +30,6 @@ var SubtaskTask = function (title, tasksArray) {
     var array = [];
     this.array = tasksArray;
 };
-
 
 DeadlineTask.prototype = Object.create(Task.prototype);
 SubtaskTask.prototype = Object.create(Task.prototype);
@@ -88,6 +93,10 @@ Task.prototype.delete = function(){
     }
 };
 
+Task.prototype.canBeRemoved = function(){
+    return true;
+};
+
 DeadlineTask.prototype.draw = function() {
     Task.prototype.draw.call(this);
 
@@ -106,6 +115,21 @@ SubtaskTask.prototype.draw = function() {
     drawSubtask(this);
 };
 
+SubtaskTask.prototype.canBeRemoved = function(){
+    Task.prototype.canBeRemoved.call(this);
+    for(var j = 0; j<this.array.length; j++){
+        if(this.array[j].finished == false){
+            this.finished = false;
+            return false;
+        }
+
+    }
+    return true;
+};
+
+document.querySelector(".buttonAdd").addEventListener("click", addTask);
+document.querySelector(".buttonAddMore").addEventListener("click", addSubTask);
+
 function drawSubtask (parent){
     console.log(parent);
     var temp = parent.id;
@@ -114,10 +138,9 @@ function drawSubtask (parent){
     console.log(x);
     var i = 0;
     for (i=0; i<parent.array.length; i++){
-        console.log([parent.array[i]]);
 
         var z = document.createElement("SPAN");
-        z.setAttribute("class", "col-6 text-center");
+        z.setAttribute("class", "col-10 text-left");
         var t = document.createTextNode("Title: " + parent.array[i].title);
         z.appendChild(t);
         x.appendChild(z);
@@ -125,11 +148,25 @@ function drawSubtask (parent){
         var y = document.createElement("INPUT");
         y.setAttribute("type", "checkbox");
         y.setAttribute("class", "checkbox col-1");
-        y.setAttribute("data-id", this.id);
-      //  y.setAttribute("onclick", "onChange(this)");
+        y.setAttribute("data-id", parent.array[i].id);
         y.addEventListener("click", function () {
-            parent.array[i].finished = true;
+            var what = this.getAttribute('data-id');
+            if(this.checked){
+                for(var j=0; j<parent.array.length; j++){
+                    if(parent.array[j].id == what){
+                        parent.array[j].finished = true;
+                    }
+                }
+            }
+            else{
+                for( j=0; j<parent.array.length; j++){
+                    if(parent.array[j].id == what){
+                        parent.array[j].finished = false;
+                    }
+                }
+            }
         });
+
         if (parent.array[i].finished) {
             y.checked = true;
         }
@@ -142,22 +179,26 @@ function drawSubtask (parent){
     }
 }
 
-document.querySelector(".buttonAdd").addEventListener("click", addTask);
-document.querySelector(".buttonAddMore").addEventListener("click", addSubTask);
-
 function addSubTask(){
     x = document.getElementById("myForm");
-
+    var xxx = document.createElement("DIV");
+    xxx.setAttribute("id", "subContainer");
+    xxx.setAttribute("class", "col-12");
+    ids++;
     var y = document.createElement("INPUT");
     y.setAttribute("type", "text");
     y.setAttribute("class", "col-10");
-    y.setAttribute("id", "sTitle");
+    y.setAttribute("id", ids);
+
 
     var yt = document.createTextNode("Title");
     var yl = document.createElement("LABEL");
+    yl.setAttribute("class", "col-2");
+
     yl.appendChild(yt);
-    x.appendChild(y);
-    x.appendChild(yl);
+    xxx.appendChild(y);
+    xxx.appendChild(yl);
+    x.appendChild(xxx);
 
 /*    var yy = document.createElement("INPUT");
     yy.setAttribute("id", "sdeadline");
@@ -170,37 +211,31 @@ function addSubTask(){
     x.appendChild(yy);
     x.appendChild(yyl);*/
     isSub= true;
-
-    var button = document.createElement("BUTTON");
-    button.setAttribute("class", "col-2 btn btn-danger");
-    button.addEventListener("click", function () {
-        var titleValue = document.querySelector("#sTitle").value;
-        var newTask = new Task(titleValue);
-        subT.push(newTask);
-        event.preventDefault();
-    });
-
-    x.appendChild(button);
-
-    //if(document.querySelector("#sdeadline").value === ""){
-
-   // }
-   /* else{
-        var title = document.querySelector("#sTitle").value;
-        var deadline = document.querySelector("#sdeadline").value;
-        var newTaskDeadline = new DeadlineTask(title, deadline);
-        subT.push(newTaskDeadline);
-    }*/
-
 }
 
 function addTask(){
 
+    console.log(ids);
     if(isSub){
+        for(var i = 1; i<=ids; i++){
+            var temp = i.toString();
+            console.log(temp);
+            var sstitleValue = document.getElementById(temp).value;
+            var snewTask = new Task(sstitleValue);
+            subT.push(snewTask);
+            event.preventDefault();
+            var zzz = document.getElementById("subContainer");
+            console.log(zzz);
+            zzz.parentNode.removeChild(zzz);
+        }
+
         var stitleValue = document.querySelector("#inputNewTask").value;
-        var newTaskSub = SubtaskTask(stitleValue, subT);
+        var newTaskSub = new SubtaskTask(stitleValue, subT);
         allTasks.push(newTaskSub);
         newTaskSub.draw();
+        ids = 0;
+        subT = [];
+        isSub=false;
     }
     else{
         if(document.querySelector("#deadline").value === ""){
@@ -221,6 +256,10 @@ function addTask(){
     document.querySelector("#inputNewTask").value = "";
     document.querySelector("#deadline").value = "";
 
+   /* localStorage.removeItem("localTasks");
+    localStorage.setItem("localTasks", JSON.stringify(allTasks));
+    var storedTasks = JSON.parse(localStorage.getItem("localTasks"));
+*/
 }
 
 function deleteTask(e) {
@@ -250,12 +289,21 @@ function showAllTasks(){
 
 function onToggle(e) {
     var whatRemove = e.getAttribute('data-id');
+    var canBeRemoved = true;
             if (e.checked) {
                 for(var i=0; i<allTasks.length; i++){
                     if(allTasks[i].id == whatRemove){
-                        allTasks[i].finished = true;
-                        e.parentElement.remove();
-                        allTasks[i].draw();
+                        canBeRemoved = allTasks[i].canBeRemoved();
+                        if(canBeRemoved){
+                            allTasks[i].finished = true;
+                            e.parentElement.remove();
+                            allTasks[i].draw();
+                        }
+                        else{
+                            alert("finish all subtasks first!");
+                            e.parentElement.remove();
+                            allTasks[i].draw();
+                        }
                     }
                 }
             }
@@ -271,21 +319,19 @@ function onToggle(e) {
             }
 }
 
-
-
-
 function init(){
     var task1 = new Task("helo ele elo");
     var task2 = new Task("no elo");
+    var task3 = new Task("helllloooo");
     var b = new DeadlineTask("12", 12);
     var b1 = new DeadlineTask("2", 2);
-    task2.finished = true;
+    task2.finished = false;
     var tasksArray = [];
     tasksArray.push(task1);
     tasksArray.push(task2);
 
     var c1 = new SubtaskTask("ww", tasksArray);
-
+    allTasks.push(task3);
     allTasks.push(b);
     allTasks.push(b1);
     allTasks.push(c1);
@@ -294,6 +340,9 @@ function init(){
 }
 
 init();
+
+/*localStorage.setItem("allTasks", JSON.stringify(allTasks));
+var storedNames = JSON.parse(localStorage.getItem("allTasks"));*/
 
 /*function showTask(newTask) {
  var x = document.createElement("DIV");
