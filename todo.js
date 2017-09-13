@@ -1,6 +1,7 @@
 /**
  * Created by Magda on 2017-09-06.
  */
+"use strict";
 var allTasks = [];
 
 var id = 1;
@@ -13,22 +14,27 @@ localStorage.setItem('myCat', 'Tom');
 var cat = localStorage.getItem("myCat");*/
 
 
-var Task = function(title){
+var Task = function(title, finished){
     this.id = id;
     id = id + 1;
     this.title = title;
-    this.finished = false;
+    this.finished = finished || false;
+    this.type = "task";
 };
 
-var DeadlineTask = function(title, deadline) {
+var DeadlineTask = function(title, deadline, finished) {
     Task.call(this, title);
     this.deadline = deadline;
+    this.type = "deadline";
+    this.finished = finished || false;
 };
 
-var SubtaskTask = function (title, tasksArray) {
+var SubtaskTask = function (title, tasksArray, finished) {
     Task.call(this, title);
     var array = [];
     this.array = tasksArray;
+    this.type = "subtask";
+    this.finished = finished || false;
 };
 
 DeadlineTask.prototype = Object.create(Task.prototype);
@@ -122,7 +128,6 @@ SubtaskTask.prototype.canBeRemoved = function(){
             this.finished = false;
             return false;
         }
-
     }
     return true;
 };
@@ -134,7 +139,7 @@ function drawSubtask (parent){
     console.log(parent);
     var temp = parent.id;
 
-    x = document.getElementById(temp);
+    var x = document.getElementById(temp);
     console.log(x);
     var i = 0;
     for (i=0; i<parent.array.length; i++){
@@ -180,7 +185,7 @@ function drawSubtask (parent){
 }
 
 function addSubTask(){
-    x = document.getElementById("myForm");
+    var x = document.getElementById("myForm");
     var xxx = document.createElement("DIV");
     xxx.setAttribute("id", "subContainer");
     xxx.setAttribute("class", "col-12");
@@ -252,14 +257,13 @@ function addTask(){
             newTaskDeadline.draw();
         }
     }
-
+    localStorage.setItem("allEntries", JSON.stringify(allTasks));
     document.querySelector("#inputNewTask").value = "";
     document.querySelector("#deadline").value = "";
-
-   /* localStorage.removeItem("localTasks");
-    localStorage.setItem("localTasks", JSON.stringify(allTasks));
-    var storedTasks = JSON.parse(localStorage.getItem("localTasks"));
-*/
+    localStorage.setItem("allEntries", JSON.stringify(allTasks));
+     //localStorage.removeItem("localTasks");
+     //localStorage.setItem("localTasks", JSON.stringify(allTasks));
+    // var storedTasks = JSON.parse(localStorage.getItem("localTasks"));
 }
 
 function deleteTask(e) {
@@ -270,6 +274,7 @@ function deleteTask(e) {
           // e.parentElement.remove();
         }
     }
+    localStorage.setItem("allEntries", JSON.stringify(allTasks));
 }
 
 function showAllTasks(){
@@ -283,7 +288,6 @@ function showAllTasks(){
     for(i = 0; i < allTasks.length; i++){
         console.log(allTasks[i]);
         allTasks[i].draw();
-
     }
 }
 
@@ -303,6 +307,7 @@ function onToggle(e) {
                             alert("finish all subtasks first!");
                             e.parentElement.remove();
                             allTasks[i].draw();
+
                         }
                     }
                 }
@@ -317,75 +322,50 @@ function onToggle(e) {
                     }
                 }
             }
+    localStorage.setItem("allEntries", JSON.stringify(allTasks));
+
+
 }
 
 function init(){
-    var task1 = new Task("helo ele elo");
+    var existingEntries = JSON.parse(localStorage.getItem("allEntries") || "[]");
+    console.log(existingEntries);
+
+    for(var i = 0; i<existingEntries.length; i++){
+        if(existingEntries[i].type == "task"){
+            var obj = new Task(existingEntries[i].title, existingEntries[i].finished);
+            allTasks.push(obj);
+        }
+        if(existingEntries[i].type == "deadline"){
+            obj = new DeadlineTask(existingEntries[i].title, existingEntries[i].deadline,  existingEntries[i].finished);
+            allTasks.push(obj);
+        }
+        if(existingEntries[i].type == "subtask"){
+            obj = new SubtaskTask(existingEntries[i].title, existingEntries[i].array,  existingEntries[i].finished);
+            allTasks.push(obj);
+        }
+    }
+
+    var entry = new Task("helo ele elo", true);
+    var b = new DeadlineTask("12", 12);
+
     var task2 = new Task("no elo");
     var task3 = new Task("helllloooo");
-    var b = new DeadlineTask("12", 12);
-    var b1 = new DeadlineTask("2", 2);
     task2.finished = false;
     var tasksArray = [];
-    tasksArray.push(task1);
     tasksArray.push(task2);
+    tasksArray.push(task3);
 
-    var c1 = new SubtaskTask("ww", tasksArray);
-    allTasks.push(task3);
+    var c = new SubtaskTask("suuuub", tasksArray);
+
+    allTasks.push(entry);
     allTasks.push(b);
-    allTasks.push(b1);
-    allTasks.push(c1);
+    allTasks.push(c);
+    localStorage.setItem("allEntries", JSON.stringify(allTasks));
+    console.log(allTasks);
+
 
     showAllTasks();
 }
 
 init();
-
-/*localStorage.setItem("allTasks", JSON.stringify(allTasks));
-var storedNames = JSON.parse(localStorage.getItem("allTasks"));*/
-
-/*function showTask(newTask) {
- var x = document.createElement("DIV");
- if(newTask.finished){
- x.setAttribute("class", "taskItem finishedTask row justify-content-between align-items-center");
- document.getElementById("taskList").appendChild(x);
- }
- else{
- x.setAttribute("class", "taskItem row justify-content-between align-items-center");
- var list = document.getElementById("taskList");
- list.insertBefore(x, list.childNodes[0]);
- }
-
- var z = document.createElement("SPAN");
- z.setAttribute("class", "col-7");
- var t = document.createTextNode(newTask.title);
- z.appendChild(t);
- x.appendChild(z);
-
- var y = document.createElement("INPUT");
- y.setAttribute("type", "checkbox");
- y.setAttribute("class", "checkbox col-1");
- y.setAttribute("data-id", newTask.id);
- y.setAttribute("onclick", "onToggle(this)");
- if(newTask.finished){
- y.checked = true;
- }
- var yt = document.createTextNode("Gotowe");
- var yl = document.createElement("LABEL");
- yl.appendChild(yt);
- x.appendChild(yl);
- x.appendChild(y);
-
- var b = document.createElement("BUTTON");
- b.setAttribute("class", "deleteButton col-2 btn btn-danger");
- b.setAttribute("type", "button");
- b.setAttribute("data-id", newTask.id);
- b.setAttribute("onclick", "deleteTask(this)");
- var tt = document.createTextNode("DELETE");
- b.appendChild(tt);
- x.appendChild(b);
- }*/
-
-
-
-
