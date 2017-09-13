@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3eccff94-78a3-4df7-adc3-b4d468e03e46" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todo.js" afterPath="$PROJECT_DIR$/todo.js" />
     </list>
     <ignored path="untitled1.iws" />
@@ -48,10 +47,10 @@
                     <element signature="e#956#2401#0" expanded="false" />
                     <element signature="e#2438#2768#0" expanded="false" />
                     <element signature="e#2875#3210#0" expanded="false" />
-                    <element signature="e#5883#6221#0" expanded="false" />
-                    <marker date="1505299877501" expanded="true" signature="7010:7589" ph="{...}" />
-                    <marker date="1505299877501" expanded="true" signature="8834:9909" ph="{...}" />
-                    <marker date="1505299877501" expanded="true" signature="10771:11285" ph="{...}" />
+                    <element signature="e#5957#6295#0" expanded="false" />
+                    <marker date="1505300203410" expanded="true" signature="7084:7663" ph="{...}" />
+                    <marker date="1505300203410" expanded="true" signature="8908:9983" ph="{...}" />
+                    <marker date="1505300203410" expanded="true" signature="10845:11358" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -86,22 +85,26 @@
           <file leaf-file-name="todo.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/todo.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="280">
-                  <caret line="187" column="8" selection-start-line="187" selection-start-column="8" selection-end-line="187" selection-end-column="8" />
+                <state relative-caret-position="710">
+                  <caret line="172" column="73" selection-start-line="172" selection-start-column="73" selection-end-line="172" selection-end-column="73" />
                   <folding>
                     <element signature="e#0#42#0" expanded="false" />
                     <element signature="e#956#2401#0" expanded="false" />
                     <element signature="e#2438#2768#0" expanded="false" />
                     <element signature="e#2811#2831#0" expanded="false" />
+                    <element signature="e#2875#3210#0" expanded="false" />
                     <element signature="e#3253#3338#0" expanded="false" />
                     <element signature="e#3388#3620#0" expanded="false" />
-                    <element signature="e#5883#6221#0" expanded="false" />
+                    <element signature="n#!!block;n#addSubTask#0" expanded="false" />
+                    <element signature="e#5957#6295#0" expanded="false" />
                     <element signature="n#!!block;n#addTask#0" expanded="false" />
+                    <element signature="n#!!block;n#deleteTask#0" expanded="false" />
                     <element signature="n#!!block;n#showAllTasks#0" expanded="false" />
                     <element signature="n#!!block;n#onToggle#0" expanded="false" />
-                    <marker date="1505299877501" expanded="true" signature="7010:7589" ph="{...}" />
-                    <marker date="1505299877501" expanded="true" signature="8834:9909" ph="{...}" />
-                    <marker date="1505299877501" expanded="true" signature="10771:11285" ph="{...}" />
+                    <element signature="n#!!block;n#init#0" expanded="false" />
+                    <marker date="1505300203410" expanded="true" signature="7084:7663" ph="{...}" />
+                    <marker date="1505300203410" expanded="true" signature="8908:9983" ph="{...}" />
+                    <marker date="1505300203410" expanded="true" signature="10845:11358" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -282,12 +285,12 @@
       <workItem from="1505153355543" duration="4410000" />
       <workItem from="1505158000988" duration="108000" />
       <workItem from="1505207258360" duration="13103000" />
-      <workItem from="1505292695550" duration="4869000" />
+      <workItem from="1505292695550" duration="5192000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79047000" />
+    <option name="totallyTimeSpent" value="79370000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -364,15 +367,19 @@
             <element signature="e#956#2401#0" expanded="false" />
             <element signature="e#2438#2768#0" expanded="false" />
             <element signature="e#2811#2831#0" expanded="false" />
+            <element signature="e#2875#3210#0" expanded="false" />
             <element signature="e#3253#3338#0" expanded="false" />
             <element signature="e#3388#3620#0" expanded="false" />
-            <element signature="e#5883#6221#0" expanded="false" />
+            <element signature="n#!!block;n#addSubTask#0" expanded="false" />
+            <element signature="e#5957#6295#0" expanded="false" />
             <element signature="n#!!block;n#addTask#0" expanded="false" />
+            <element signature="n#!!block;n#deleteTask#0" expanded="false" />
             <element signature="n#!!block;n#showAllTasks#0" expanded="false" />
             <element signature="n#!!block;n#onToggle#0" expanded="false" />
-            <marker date="1505299877501" expanded="true" signature="7010:7589" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="8834:9909" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="10771:11285" ph="{...}" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <marker date="1505300203410" expanded="true" signature="7084:7663" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="8908:9983" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="10845:11358" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -412,15 +419,19 @@
             <element signature="e#956#2401#0" expanded="false" />
             <element signature="e#2438#2768#0" expanded="false" />
             <element signature="e#2811#2831#0" expanded="false" />
+            <element signature="e#2875#3210#0" expanded="false" />
             <element signature="e#3253#3338#0" expanded="false" />
             <element signature="e#3388#3620#0" expanded="false" />
-            <element signature="e#5883#6221#0" expanded="false" />
+            <element signature="n#!!block;n#addSubTask#0" expanded="false" />
+            <element signature="e#5957#6295#0" expanded="false" />
             <element signature="n#!!block;n#addTask#0" expanded="false" />
+            <element signature="n#!!block;n#deleteTask#0" expanded="false" />
             <element signature="n#!!block;n#showAllTasks#0" expanded="false" />
             <element signature="n#!!block;n#onToggle#0" expanded="false" />
-            <marker date="1505299877501" expanded="true" signature="7010:7589" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="8834:9909" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="10771:11285" ph="{...}" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <marker date="1505300203410" expanded="true" signature="7084:7663" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="8908:9983" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="10845:11358" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -460,15 +471,19 @@
             <element signature="e#956#2401#0" expanded="false" />
             <element signature="e#2438#2768#0" expanded="false" />
             <element signature="e#2811#2831#0" expanded="false" />
+            <element signature="e#2875#3210#0" expanded="false" />
             <element signature="e#3253#3338#0" expanded="false" />
             <element signature="e#3388#3620#0" expanded="false" />
-            <element signature="e#5883#6221#0" expanded="false" />
+            <element signature="n#!!block;n#addSubTask#0" expanded="false" />
+            <element signature="e#5957#6295#0" expanded="false" />
             <element signature="n#!!block;n#addTask#0" expanded="false" />
+            <element signature="n#!!block;n#deleteTask#0" expanded="false" />
             <element signature="n#!!block;n#showAllTasks#0" expanded="false" />
             <element signature="n#!!block;n#onToggle#0" expanded="false" />
-            <marker date="1505299877501" expanded="true" signature="7010:7589" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="8834:9909" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="10771:11285" ph="{...}" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <marker date="1505300203410" expanded="true" signature="7084:7663" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="8908:9983" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="10845:11358" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -508,15 +523,19 @@
             <element signature="e#956#2401#0" expanded="false" />
             <element signature="e#2438#2768#0" expanded="false" />
             <element signature="e#2811#2831#0" expanded="false" />
+            <element signature="e#2875#3210#0" expanded="false" />
             <element signature="e#3253#3338#0" expanded="false" />
             <element signature="e#3388#3620#0" expanded="false" />
-            <element signature="e#5883#6221#0" expanded="false" />
+            <element signature="n#!!block;n#addSubTask#0" expanded="false" />
+            <element signature="e#5957#6295#0" expanded="false" />
             <element signature="n#!!block;n#addTask#0" expanded="false" />
+            <element signature="n#!!block;n#deleteTask#0" expanded="false" />
             <element signature="n#!!block;n#showAllTasks#0" expanded="false" />
             <element signature="n#!!block;n#onToggle#0" expanded="false" />
-            <marker date="1505299877501" expanded="true" signature="7010:7589" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="8834:9909" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="10771:11285" ph="{...}" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <marker date="1505300203410" expanded="true" signature="7084:7663" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="8908:9983" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="10845:11358" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -556,15 +575,19 @@
             <element signature="e#956#2401#0" expanded="false" />
             <element signature="e#2438#2768#0" expanded="false" />
             <element signature="e#2811#2831#0" expanded="false" />
+            <element signature="e#2875#3210#0" expanded="false" />
             <element signature="e#3253#3338#0" expanded="false" />
             <element signature="e#3388#3620#0" expanded="false" />
-            <element signature="e#5883#6221#0" expanded="false" />
+            <element signature="n#!!block;n#addSubTask#0" expanded="false" />
+            <element signature="e#5957#6295#0" expanded="false" />
             <element signature="n#!!block;n#addTask#0" expanded="false" />
+            <element signature="n#!!block;n#deleteTask#0" expanded="false" />
             <element signature="n#!!block;n#showAllTasks#0" expanded="false" />
             <element signature="n#!!block;n#onToggle#0" expanded="false" />
-            <marker date="1505299877501" expanded="true" signature="7010:7589" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="8834:9909" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="10771:11285" ph="{...}" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <marker date="1505300203410" expanded="true" signature="7084:7663" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="8908:9983" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="10845:11358" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -604,15 +627,19 @@
             <element signature="e#956#2401#0" expanded="false" />
             <element signature="e#2438#2768#0" expanded="false" />
             <element signature="e#2811#2831#0" expanded="false" />
+            <element signature="e#2875#3210#0" expanded="false" />
             <element signature="e#3253#3338#0" expanded="false" />
             <element signature="e#3388#3620#0" expanded="false" />
-            <element signature="e#5883#6221#0" expanded="false" />
+            <element signature="n#!!block;n#addSubTask#0" expanded="false" />
+            <element signature="e#5957#6295#0" expanded="false" />
             <element signature="n#!!block;n#addTask#0" expanded="false" />
+            <element signature="n#!!block;n#deleteTask#0" expanded="false" />
             <element signature="n#!!block;n#showAllTasks#0" expanded="false" />
             <element signature="n#!!block;n#onToggle#0" expanded="false" />
-            <marker date="1505299877501" expanded="true" signature="7010:7589" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="8834:9909" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="10771:11285" ph="{...}" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <marker date="1505300203410" expanded="true" signature="7084:7663" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="8908:9983" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="10845:11358" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -652,15 +679,19 @@
             <element signature="e#956#2401#0" expanded="false" />
             <element signature="e#2438#2768#0" expanded="false" />
             <element signature="e#2811#2831#0" expanded="false" />
+            <element signature="e#2875#3210#0" expanded="false" />
             <element signature="e#3253#3338#0" expanded="false" />
             <element signature="e#3388#3620#0" expanded="false" />
-            <element signature="e#5883#6221#0" expanded="false" />
+            <element signature="n#!!block;n#addSubTask#0" expanded="false" />
+            <element signature="e#5957#6295#0" expanded="false" />
             <element signature="n#!!block;n#addTask#0" expanded="false" />
+            <element signature="n#!!block;n#deleteTask#0" expanded="false" />
             <element signature="n#!!block;n#showAllTasks#0" expanded="false" />
             <element signature="n#!!block;n#onToggle#0" expanded="false" />
-            <marker date="1505299877501" expanded="true" signature="7010:7589" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="8834:9909" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="10771:11285" ph="{...}" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <marker date="1505300203410" expanded="true" signature="7084:7663" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="8908:9983" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="10845:11358" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -700,15 +731,19 @@
             <element signature="e#956#2401#0" expanded="false" />
             <element signature="e#2438#2768#0" expanded="false" />
             <element signature="e#2811#2831#0" expanded="false" />
+            <element signature="e#2875#3210#0" expanded="false" />
             <element signature="e#3253#3338#0" expanded="false" />
             <element signature="e#3388#3620#0" expanded="false" />
-            <element signature="e#5883#6221#0" expanded="false" />
+            <element signature="n#!!block;n#addSubTask#0" expanded="false" />
+            <element signature="e#5957#6295#0" expanded="false" />
             <element signature="n#!!block;n#addTask#0" expanded="false" />
+            <element signature="n#!!block;n#deleteTask#0" expanded="false" />
             <element signature="n#!!block;n#showAllTasks#0" expanded="false" />
             <element signature="n#!!block;n#onToggle#0" expanded="false" />
-            <marker date="1505299877501" expanded="true" signature="7010:7589" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="8834:9909" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="10771:11285" ph="{...}" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <marker date="1505300203410" expanded="true" signature="7084:7663" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="8908:9983" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="10845:11358" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -748,15 +783,19 @@
             <element signature="e#956#2401#0" expanded="false" />
             <element signature="e#2438#2768#0" expanded="false" />
             <element signature="e#2811#2831#0" expanded="false" />
+            <element signature="e#2875#3210#0" expanded="false" />
             <element signature="e#3253#3338#0" expanded="false" />
             <element signature="e#3388#3620#0" expanded="false" />
-            <element signature="e#5883#6221#0" expanded="false" />
+            <element signature="n#!!block;n#addSubTask#0" expanded="false" />
+            <element signature="e#5957#6295#0" expanded="false" />
             <element signature="n#!!block;n#addTask#0" expanded="false" />
+            <element signature="n#!!block;n#deleteTask#0" expanded="false" />
             <element signature="n#!!block;n#showAllTasks#0" expanded="false" />
             <element signature="n#!!block;n#onToggle#0" expanded="false" />
-            <marker date="1505299877501" expanded="true" signature="7010:7589" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="8834:9909" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="10771:11285" ph="{...}" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <marker date="1505300203410" expanded="true" signature="7084:7663" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="8908:9983" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="10845:11358" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -796,22 +835,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/todo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="187" column="8" selection-start-line="187" selection-start-column="8" selection-end-line="187" selection-end-column="8" />
+        <state relative-caret-position="710">
+          <caret line="172" column="73" selection-start-line="172" selection-start-column="73" selection-end-line="172" selection-end-column="73" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
             <element signature="e#956#2401#0" expanded="false" />
             <element signature="e#2438#2768#0" expanded="false" />
             <element signature="e#2811#2831#0" expanded="false" />
+            <element signature="e#2875#3210#0" expanded="false" />
             <element signature="e#3253#3338#0" expanded="false" />
             <element signature="e#3388#3620#0" expanded="false" />
-            <element signature="e#5883#6221#0" expanded="false" />
+            <element signature="n#!!block;n#addSubTask#0" expanded="false" />
+            <element signature="e#5957#6295#0" expanded="false" />
             <element signature="n#!!block;n#addTask#0" expanded="false" />
+            <element signature="n#!!block;n#deleteTask#0" expanded="false" />
             <element signature="n#!!block;n#showAllTasks#0" expanded="false" />
             <element signature="n#!!block;n#onToggle#0" expanded="false" />
-            <marker date="1505299877501" expanded="true" signature="7010:7589" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="8834:9909" ph="{...}" />
-            <marker date="1505299877501" expanded="true" signature="10771:11285" ph="{...}" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <marker date="1505300203410" expanded="true" signature="7084:7663" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="8908:9983" ph="{...}" />
+            <marker date="1505300203410" expanded="true" signature="10845:11358" ph="{...}" />
           </folding>
         </state>
       </provider>

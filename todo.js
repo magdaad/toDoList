@@ -170,6 +170,7 @@ function drawSubtask (parent){
                     }
                 }
             }
+            localStorage.setItem("allEntries", JSON.stringify(allTasks));
         });
 
         if (parent.array[i].finished) {
@@ -351,7 +352,7 @@ function init(){
 
     var task2 = new Task("no elo");
     var task3 = new Task("helllloooo");
-    task2.finished = false;
+    task2.finished = true;
     var tasksArray = [];
     tasksArray.push(task2);
     tasksArray.push(task3);
